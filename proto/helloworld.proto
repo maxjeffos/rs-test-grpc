@@ -1,0 +1,31 @@
+syntax = "proto3";
+package helloworld;
+
+service Greeter {
+    // Our SayHello rpc accepts HelloRequests and returns HelloReplies
+    rpc SayHello (HelloRequest) returns (HelloReply);
+}
+
+message HelloRequest {
+    // Request message contains the name to be greeted
+    string name = 1;
+}
+
+message HelloReply {
+    // Reply contains the greeting message
+    string message = 1;
+}
+
+
+// This is for spelunking with an output service
+service Output {
+    rpc Println(PrintlnRequest) returns (PrintlnReply);
+}
+
+// TODO add optional color info
+message PrintlnRequest {
+    string s = 1; // this is the field number
+}
+
+message  PrintlnReply {
+}
